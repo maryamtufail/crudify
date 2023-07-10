@@ -6,16 +6,14 @@ const Employee = () => {
   const [employeeItems, setEmployeeItems] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
 
-  const handleAddItem = (newItem) => {
+  const handleAddItem = (item) => {
     if (editIndex !== null) {
-      // If an edit is in progress, update the existing item
       const updatedItems = [...employeeItems];
-      updatedItems[editIndex] = newItem;
+      updatedItems[editIndex] = item;
       setEmployeeItems(updatedItems);
       setEditIndex(null);
     } else {
-      // Otherwise, add a new item
-      setEmployeeItems([...employeeItems, newItem]);
+      setEmployeeItems([...employeeItems, item]);
     }
   };
 
@@ -33,11 +31,13 @@ const Employee = () => {
   return (
     <div className="max-w-lg mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">New Employee</h1>
+
       <EmployeeForm
         onAddItem={handleAddItem}
         editIndex={editIndex}
-        employee={editIndex !== null ? employeeItems[editIndex] : null}
+        employee={employeeItems[editIndex]}
       />
+
       <div className="flex flex-wrap -mx-2">
         {employeeItems.map((item, index) => (
           <div key={index} className="w-full px-2 mb-4">
