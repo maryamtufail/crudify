@@ -6,7 +6,8 @@ const EmployeeItem = ({ item, onEdit, onDelete }) => {
     <div className="border p-4 mb-4">
       <h3 className="">Full Name: {item.fullName}</h3>
       <p className="mb-2">Email: {item.email}</p>
-      <p className="mb-4">Description: {item.description}</p>
+      <p className="mb-2">Phone No: {item.phone}</p>
+      <p className="mb-2">Salary: {item.salary}</p>
       <div className="flex flex-wrap gap-2 justify-center items-center">
         <Button onClick={onEdit}>Edit</Button>
         <Button onClick={onDelete}>Delete</Button>
